@@ -193,11 +193,11 @@ export default function HomePage() {
           <div className="mt-6 sm:mt-10">
             <PlaceholderImage
               label="活動中の写真"
-              alt="mamakoroの活動中の写真"
+              alt="mamakoroの活動風景"
               aspect="wide"
               rounded="4xl"
               priority
-              // src="/images/hero.jpg" // ← 画像を public/images/ に置いたら有効化
+              src="/images/hero-activity.jpg"
             />
           </div>
 
