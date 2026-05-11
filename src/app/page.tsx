@@ -443,23 +443,13 @@ export default function HomePage() {
           />
 
           <div className="rounded-3xl bg-white p-5 shadow-soft sm:p-7">
-            <dl className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <dt className="text-xs font-semibold tracking-wider text-coral-400">
-                  エリア
-                </dt>
-                <dd className="mt-1 text-base font-bold text-cocoa-700">
-                  {SALON_INFO.area}
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs font-semibold tracking-wider text-coral-400">
-                  会場
-                </dt>
-                <dd className="mt-1 text-base font-bold text-cocoa-700">
-                  卓球場の2階
-                </dd>
-              </div>
+            <dl>
+              <dt className="text-xs font-semibold tracking-wider text-coral-400">
+                エリア
+              </dt>
+              <dd className="mt-1 text-base font-bold text-cocoa-700">
+                {SALON_INFO.area}
+              </dd>
             </dl>
             <p className="mt-4 rounded-2xl bg-cream-100 px-4 py-3 text-xs leading-relaxed text-cocoa-500 sm:text-sm">
               詳しい住所は、ご予約確定後にInstagram DMでご案内しています。

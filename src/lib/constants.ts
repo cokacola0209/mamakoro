@@ -11,7 +11,6 @@ export const INSTAGRAM_URL = "https://www.instagram.com/";
 // サロン情報
 export const SALON_INFO = {
   area: "福岡県筑紫野市",
-  venue: "卓球場の2階",
   priceYen: 1000,
   durationMin: 60,
   maxCapacity: 4,
