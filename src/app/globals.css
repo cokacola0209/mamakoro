@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: #FFFBF5; /* cream-50 */
+  color: #5A3F30; /* cocoa-700 */
+  font-feature-settings: "palt";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 装飾用：やわらかい背景パターン */
+.bg-soft-dots {
+  background-image: radial-gradient(rgba(244, 167, 149, 0.15) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
