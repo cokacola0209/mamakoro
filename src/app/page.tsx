@@ -19,7 +19,7 @@ function SectionTitle({
   description?: string;
 }) {
   return (
-    <div className="mb-8 text-center sm:mb-10">
+    <div className="mb-6 text-center sm:mb-10">
       {eyebrow && (
         <p className="mb-2 text-xs font-semibold tracking-[0.2em] text-coral-400">
           {eyebrow}
@@ -49,7 +49,7 @@ function Section({
   return (
     <section
       id={id}
-      className={`px-5 py-14 sm:px-6 sm:py-20 ${className}`}
+      className={`px-5 py-10 sm:px-6 sm:py-20 ${className}`}
     >
       <div className="mx-auto w-full max-w-3xl">{children}</div>
     </section>
@@ -146,9 +146,9 @@ export default function HomePage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-cream-100 via-peach-100/60 to-cream-50" />
         <div className="absolute inset-0 -z-10 bg-soft-dots opacity-60" />
 
-        <div className="mx-auto w-full max-w-3xl px-5 pb-12 pt-12 sm:px-6 sm:pb-20 sm:pt-16">
+        <div className="mx-auto w-full max-w-3xl px-5 pb-10 pt-10 sm:px-6 sm:pb-20 sm:pt-16">
           {/* ロゴ・サイト名 */}
-          <div className="mb-6 flex items-center justify-center gap-2 text-coral-400">
+          <div className="mb-5 flex items-center justify-center gap-2 text-coral-400">
             <span className="inline-block h-2 w-2 rounded-full bg-coral-300" />
             <p className="text-xs font-semibold tracking-[0.25em]">
               CHIKUSHINO・FUKUOKA
@@ -165,7 +165,7 @@ export default function HomePage() {
             </span>
           </h1>
 
-          <p className="mt-6 text-center text-lg font-semibold leading-relaxed text-cocoa-700 sm:text-2xl">
+          <p className="mt-5 text-center text-lg font-semibold leading-relaxed text-cocoa-700 sm:text-2xl">
             産後ママのための、
             <br className="sm:hidden" />
             ほっとできる親子サロン
@@ -177,16 +177,16 @@ export default function HomePage() {
           </p>
 
           {/* 対象バッジ */}
-          <div className="mt-6 flex justify-center">
+          <div className="mt-5 flex justify-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-coral-500 shadow-soft sm:text-sm">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-coral-400" />
               対象：生後{SALON_INFO.targetAgeMinMonth}ヶ月〜
-              {SALON_INFO.targetAgeMaxYear}歳までのお子様をお持ちのママ
+              {SALON_INFO.targetAgeMaxYear}歳までのお子さまを子育て中のママ
             </span>
           </div>
 
           {/* ヒーロー画像 */}
-          <div className="mt-8 sm:mt-10">
+          <div className="mt-6 sm:mt-10">
             <PlaceholderImage
               label="活動中の写真"
               alt="mamakoroの活動中の写真"
@@ -198,7 +198,7 @@ export default function HomePage() {
           </div>
 
           {/* CTA */}
-          <div className="mt-8 flex flex-col items-center gap-3">
+          <div className="mt-6 flex flex-col items-center gap-3">
             <InstagramButton
               label="Instagramで予約・相談する"
               size="lg"
@@ -219,7 +219,7 @@ export default function HomePage() {
           description="産後のママが、肩の力を抜いて過ごせる居場所を目指しています。"
         />
 
-        <div className="grid gap-6 sm:gap-8">
+        <div className="grid gap-5 sm:gap-8">
           <PlaceholderImage
             label="親子サロンの様子"
             alt="親子サロンでママと赤ちゃんが過ごしている様子"
@@ -227,24 +227,28 @@ export default function HomePage() {
             // src="/images/about.jpg"
           />
 
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-2">
             {[
               {
-                title: "産後ママのための居場所",
-                body: "「ひとりじゃない」と感じられる、やさしい時間を大切にしています。",
+                title: "赤ちゃんと楽しむふれあい遊び",
+                body: "赤ちゃんとのコミュニケーションを大切にしながら、親子で楽しめるやさしいふれあい遊びを行います。",
               },
               {
-                title: "産後ダイエットと交流",
-                body: "ゆるやかに体を動かしながら、ママ同士の交流も楽しめます。",
+                title: "産後の体を整えるトレーニング",
+                body: "産後に落ちた筋力を取り戻す優しいエクササイズ・トレーニングを行い、産後の体力づくりやリフレッシュを緩やかにサポートします。",
               },
               {
-                title: "少人数で安心",
-                body: `最大${SALON_INFO.maxCapacity}名さままで。アットホームな雰囲気です。`,
+                title: "お茶しながら話せるママ会",
+                body: "お茶を飲みながら、育児のことや日々のことを気軽に話せる空間をお過ごしください。",
+              },
+              {
+                title: "少人数で安心できる居場所",
+                body: `最大${SALON_INFO.maxCapacity}名さままでの少人数制で、アットホームな雰囲気を大切にしています。`,
               },
             ].map((item) => (
               <div
                 key={item.title}
-                className="rounded-3xl bg-cream-100 p-5 shadow-soft sm:p-6"
+                className="rounded-3xl bg-cream-100 p-4 shadow-soft sm:p-6"
               >
                 <h3 className="text-base font-bold text-cocoa-700 sm:text-lg">
                   {item.title}
@@ -270,7 +274,7 @@ export default function HomePage() {
           {recommendedFor.map((item) => (
             <li
               key={item.text}
-              className="flex items-center gap-3 rounded-2xl bg-white px-4 py-4 shadow-soft sm:px-5"
+              className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-soft sm:px-5 sm:py-4"
             >
               <span
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-peach-100 text-lg"
@@ -294,7 +298,7 @@ export default function HomePage() {
           description="無理なく、楽しく。産後の体に寄り添った内容です。"
         />
 
-        <div className="grid gap-6 sm:gap-8">
+        <div className="grid gap-5 sm:gap-8">
           <PlaceholderImage
             label="ママ同士の交流イメージ"
             alt="ママ同士が交流しているイメージ写真"
@@ -302,11 +306,11 @@ export default function HomePage() {
             // src="/images/lesson.jpg"
           />
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2">
             {lessonPoints.map((item, i) => (
               <div
                 key={item.title}
-                className="rounded-3xl border border-cream-200 bg-cream-50 p-5 shadow-soft sm:p-6"
+                className="rounded-3xl border border-cream-200 bg-cream-50 p-4 shadow-soft sm:p-6"
               >
                 <div className="mb-2 flex items-center gap-2">
                   <span className="flex h-7 w-7 items-center justify-center rounded-full bg-coral-200 text-xs font-bold text-white">
@@ -323,7 +327,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <p className="rounded-2xl bg-peach-100/60 px-5 py-4 text-center text-xs leading-relaxed text-cocoa-500 sm:text-sm">
+          <p className="rounded-2xl bg-peach-100/60 px-4 py-3 text-center text-xs leading-relaxed text-cocoa-500 sm:px-5 sm:py-4 sm:text-sm">
             ※ 効果には個人差があります。痩身や治療を目的としたものではなく、
             気分転換や交流のきっかけとしてご活用ください。
           </p>
@@ -338,7 +342,7 @@ export default function HomePage() {
           description="シンプルでわかりやすい料金です。"
         />
 
-        <div className="rounded-4xl bg-white p-6 shadow-soft-lg sm:p-10">
+        <div className="rounded-4xl bg-white p-5 shadow-soft-lg sm:p-10">
           <dl className="divide-y divide-cream-200">
             {[
               {
@@ -355,12 +359,12 @@ export default function HomePage() {
               },
               {
                 label: "対象",
-                value: `生後${SALON_INFO.targetAgeMinMonth}ヶ月〜${SALON_INFO.targetAgeMaxYear}歳までのお子様をお持ちのママ`,
+                value: `生後${SALON_INFO.targetAgeMinMonth}ヶ月〜${SALON_INFO.targetAgeMaxYear}歳までのお子さまを子育て中のママ`,
               },
             ].map((row) => (
               <div
                 key={row.label}
-                className="flex flex-col gap-1 py-4 sm:flex-row sm:items-center sm:justify-between sm:py-5"
+                className="flex flex-col gap-1 py-3 sm:flex-row sm:items-center sm:justify-between sm:py-5"
               >
                 <dt className="text-xs font-semibold tracking-wider text-coral-400 sm:text-sm">
                   {row.label}
@@ -382,8 +386,8 @@ export default function HomePage() {
           description="同じく子育て中のママだから、わかること。"
         />
 
-        <div className="rounded-4xl bg-cream-100 p-6 shadow-soft sm:p-8">
-          <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:gap-8">
+        <div className="rounded-4xl bg-cream-100 p-5 shadow-soft sm:p-8">
+          <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-start sm:gap-8">
             <div className="w-40 shrink-0 sm:w-48">
               <PlaceholderImage
                 label="トレーナー紹介写真"
@@ -403,7 +407,7 @@ export default function HomePage() {
                 保育士・トレーナー
               </h3>
 
-              <ul className="mt-4 flex flex-wrap justify-center gap-2 sm:justify-start">
+              <ul className="mt-3 flex flex-wrap justify-center gap-2 sm:justify-start">
                 <li className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-coral-500 shadow-soft">
                   保育士資格
                 </li>
@@ -412,7 +416,7 @@ export default function HomePage() {
                 </li>
               </ul>
 
-              <p className="mt-5 text-sm leading-relaxed text-cocoa-500 sm:text-base">
+              <p className="mt-4 text-sm leading-relaxed text-cocoa-500 sm:text-base">
                 産後、自分の体や気持ちの変化に戸惑った経験から、
                 「同じ時期のママが気軽に集まれる場所をつくりたい」という思いで
                 mamakoroを始めました。
@@ -434,28 +438,36 @@ export default function HomePage() {
           description="アットホームな空間で開催しています。"
         />
 
-        <div className="grid gap-6 sm:gap-8">
-          <PlaceholderImage
-            label="会場写真"
-            alt="サロン会場の写真"
-            aspect="wide"
-            // src="/images/venue.jpg"
-          />
-
-          <div className="rounded-3xl bg-white p-5 shadow-soft sm:p-7">
-            <dl>
-              <dt className="text-xs font-semibold tracking-wider text-coral-400">
-                エリア
-              </dt>
-              <dd className="mt-1 text-base font-bold text-cocoa-700">
-                {SALON_INFO.area}
-              </dd>
-            </dl>
-            <p className="mt-4 rounded-2xl bg-cream-100 px-4 py-3 text-xs leading-relaxed text-cocoa-500 sm:text-sm">
-              詳しい住所は、ご予約確定後にInstagram DMでご案内しています。
-              安心してご参加いただけるよう、Webサイト上では公開しておりません。
-            </p>
+        <div className="rounded-3xl bg-white p-6 text-center shadow-soft sm:p-8">
+          <div
+            className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-peach-100 text-coral-400 shadow-soft"
+            aria-hidden="true"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-6 w-6"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
           </div>
+          <p className="text-xs font-semibold tracking-[0.2em] text-coral-400">
+            エリア
+          </p>
+          <p className="mt-1.5 text-lg font-bold leading-snug text-cocoa-700 sm:text-xl">
+            福岡県 筑紫野市 塔原東
+          </p>
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-cocoa-500">
+            このエリアで開催しています。
+            <br className="sm:hidden" />
+            詳しい場所は、ご予約・お問い合わせ後に個別にご案内します。
+          </p>
         </div>
       </Section>
 
@@ -467,11 +479,11 @@ export default function HomePage() {
           description="シンプルな4ステップで参加できます。"
         />
 
-        <ol className="grid gap-4 sm:gap-5">
+        <ol className="grid gap-3 sm:gap-5">
           {steps.map((step) => (
             <li
               key={step.no}
-              className="flex gap-4 rounded-3xl bg-cream-50 p-5 shadow-soft sm:gap-6 sm:p-6"
+              className="flex gap-3 rounded-3xl bg-cream-50 p-4 shadow-soft sm:gap-6 sm:p-6"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-coral-300 to-peach-300 text-sm font-bold text-white shadow-soft sm:h-14 sm:w-14 sm:text-base">
                 {step.no}
@@ -488,7 +500,7 @@ export default function HomePage() {
           ))}
         </ol>
 
-        <div className="mt-8 flex justify-center">
+        <div className="mt-6 flex justify-center sm:mt-8">
           <InstagramButton
             label="Instagram DMを開く"
             size="md"
@@ -505,11 +517,11 @@ export default function HomePage() {
           description="気になることがあれば、お気軽にDMでもお尋ねください。"
         />
 
-        <div className="space-y-3 sm:space-y-4">
+        <div className="space-y-2.5 sm:space-y-4">
           {faqs.map((item) => (
             <details
               key={item.q}
-              className="group rounded-2xl bg-white p-5 shadow-soft transition open:shadow-soft-lg sm:p-6"
+              className="group rounded-2xl bg-white p-4 shadow-soft transition open:shadow-soft-lg sm:p-6"
             >
               <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
                 <div className="flex flex-1 items-start gap-3">
@@ -556,7 +568,7 @@ export default function HomePage() {
       {/* ============ 10. 最後のCTA ============ */}
       <section className="relative overflow-hidden bg-gradient-to-br from-coral-200 via-peach-200 to-coral-300">
         <div className="absolute inset-0 bg-soft-dots opacity-40" />
-        <div className="relative mx-auto w-full max-w-2xl px-5 py-16 text-center sm:px-6 sm:py-24">
+        <div className="relative mx-auto w-full max-w-2xl px-5 py-12 text-center sm:px-6 sm:py-24">
           <p className="text-xs font-semibold tracking-[0.25em] text-white/90">
             COME JOIN US
           </p>
@@ -569,7 +581,7 @@ export default function HomePage() {
             「行ってみたい」「ちょっと相談したい」だけでも大丈夫です。
             DMでお気軽にメッセージください。
           </p>
-          <div className="mt-8 flex justify-center">
+          <div className="mt-6 flex justify-center sm:mt-8">
             <InstagramButton
               label="Instagramで予約・相談する"
               size="lg"
@@ -581,7 +593,7 @@ export default function HomePage() {
       </section>
 
       {/* ============ フッター ============ */}
-      <footer className="bg-cocoa-700 px-5 py-10 text-center text-cream-100 sm:px-6">
+      <footer className="bg-cocoa-700 px-5 py-8 text-center text-cream-100 sm:px-6 sm:py-10">
         <p className="text-base font-bold tracking-wide">
           {SITE_NAME}
           <span className="ml-1 text-xs font-medium tracking-[0.2em] text-cream-200">
