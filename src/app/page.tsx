@@ -134,6 +134,10 @@ const faqs = [
     q: "住所はどこで確認できますか?",
     a: "ご予約確定後、Instagram DMで詳細な住所をお伝えしています。プライバシー保護のため、Webサイト上には住所を掲載しておりません。",
   },
+  {
+    q: "駐車場はありますか?",
+    a: "はい。駐車場４台完備のため、お車でもお越しいただけます。",
+  },
 ];
 
 // --- ページ本体 ---
@@ -406,6 +410,7 @@ export default function HomePage() {
                 <br className="sm:hidden" />
                 保育士・トレーナー
               </h3>
+              <p className="mt-1 text-xs text-cocoa-400">※2026年5月現在</p>
 
               <ul className="mt-3 flex flex-wrap justify-center gap-2 sm:justify-start">
                 <li className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-coral-500 shadow-soft">
@@ -468,6 +473,26 @@ export default function HomePage() {
             <br className="sm:hidden" />
             詳しい場所は、ご予約・お問い合わせ後に個別にご案内します。
           </p>
+          <div className="mt-5 flex justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-cream-100 px-4 py-2 text-xs font-semibold text-coral-500 shadow-soft sm:text-sm">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-4 w-4"
+                aria-hidden="true"
+              >
+                <path d="M5 17h14M6 17l1.5-5h9L18 17M5 17v2h2v-2M17 17v2h2v-2" />
+                <circle cx="7.5" cy="14.5" r="0.6" fill="currentColor" stroke="none" />
+                <circle cx="16.5" cy="14.5" r="0.6" fill="currentColor" stroke="none" />
+              </svg>
+              駐車場４台完備のため、お車でもお越しいただけます。
+            </span>
+          </div>
         </div>
       </Section>
 
