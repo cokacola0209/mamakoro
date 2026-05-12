@@ -1,6 +1,7 @@
 import { InstagramButton } from "@/components/InstagramButton";
 import { PlaceholderImage } from "@/components/PlaceholderImage";
 import {
+  INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
   SALON_INFO,
   SITE_NAME,
@@ -606,13 +607,22 @@ export default function HomePage() {
             「行ってみたい」「ちょっと相談したい」だけでも大丈夫です。
             DMでお気軽にメッセージください。
           </p>
-          <div className="mt-6 flex justify-center sm:mt-8">
+          <div className="mt-6 flex flex-col items-center gap-3 sm:mt-8">
             <InstagramButton
               label="Instagramで予約・相談する"
               size="lg"
               variant="outline"
               className="w-full max-w-sm"
             />
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Instagramアカウント ${INSTAGRAM_HANDLE} を新しいタブで開く`}
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/30"
+            >
+              <span className="tracking-wide">Instagram：{INSTAGRAM_HANDLE}</span>
+            </a>
           </div>
         </div>
       </section>
