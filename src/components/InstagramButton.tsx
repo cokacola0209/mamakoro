@@ -1,3 +1,6 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { INSTAGRAM_URL } from "@/lib/constants";
 
 type Props = {
@@ -22,8 +25,10 @@ export function InstagramButton({
   variant = "primary",
   className = "",
 }: Props) {
+  const reduced = useReducedMotion();
+
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-transform duration-200 ease-out shadow-soft active:scale-[0.98] hover:-translate-y-0.5";
+    "inline-flex items-center justify-center gap-2 rounded-full font-semibold shadow-soft will-change-transform";
 
   const variantClass =
     variant === "primary"
@@ -31,12 +36,15 @@ export function InstagramButton({
       : "bg-white text-coral-500 border border-coral-200 hover:bg-coral-100/60";
 
   return (
-    <a
+    <motion.a
       href={INSTAGRAM_URL}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${label}（Instagramを新しいタブで開く）`}
       className={`${base} ${sizeClass[size]} ${variantClass} ${className}`}
+      whileHover={reduced ? undefined : { y: -2, scale: 1.02 }}
+      whileTap={reduced ? undefined : { scale: 0.97 }}
+      transition={{ type: "spring", stiffness: 380, damping: 22 }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -54,6 +62,6 @@ export function InstagramButton({
         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
       </svg>
       <span>{label}</span>
-    </a>
+    </motion.a>
   );
 }

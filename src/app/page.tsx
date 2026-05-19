@@ -1,4 +1,6 @@
 import { InstagramButton } from "@/components/InstagramButton";
+import { MotionReveal } from "@/components/MotionReveal";
+import { MotionStagger, MotionStaggerItem } from "@/components/MotionStagger";
 import { PlaceholderImage } from "@/components/PlaceholderImage";
 import {
   INSTAGRAM_HANDLE,
@@ -20,21 +22,27 @@ function SectionTitle({
   description?: string;
 }) {
   return (
-    <div className="mb-6 text-center sm:mb-10">
+    <MotionStagger className="mb-6 text-center sm:mb-10" stagger={0.1}>
       {eyebrow && (
-        <p className="mb-2 text-xs font-semibold tracking-[0.2em] text-coral-400">
-          {eyebrow}
-        </p>
+        <MotionStaggerItem>
+          <p className="mb-2 text-xs font-semibold tracking-[0.2em] text-coral-400">
+            {eyebrow}
+          </p>
+        </MotionStaggerItem>
       )}
-      <h2 className="text-2xl font-bold leading-snug text-cocoa-700 sm:text-3xl">
-        {title}
-      </h2>
+      <MotionStaggerItem>
+        <h2 className="text-2xl font-bold leading-snug text-cocoa-700 sm:text-3xl">
+          {title}
+        </h2>
+      </MotionStaggerItem>
       {description && (
-        <p className="mt-3 text-sm leading-relaxed text-cocoa-500 sm:text-base">
-          {description}
-        </p>
+        <MotionStaggerItem>
+          <p className="mt-3 text-sm leading-relaxed text-cocoa-500 sm:text-base">
+            {description}
+          </p>
+        </MotionStaggerItem>
       )}
-    </div>
+    </MotionStagger>
   );
 }
 
@@ -153,45 +161,53 @@ export default function HomePage() {
 
         <div className="mx-auto w-full max-w-3xl px-5 pb-10 pt-10 sm:px-6 sm:pb-20 sm:pt-16">
           {/* ロゴ・サイト名 */}
-          <div className="mb-5 flex items-center justify-center gap-2 text-coral-400">
-            <span className="inline-block h-2 w-2 rounded-full bg-coral-300" />
-            <p className="text-xs font-semibold tracking-[0.25em]">
-              CHIKUSHINO・FUKUOKA
+          <MotionReveal mode="load" delay={0} duration={0.6}>
+            <div className="mb-5 flex items-center justify-center gap-2 text-coral-400">
+              <span className="inline-block h-2 w-2 rounded-full bg-coral-300" />
+              <p className="text-xs font-semibold tracking-[0.25em]">
+                CHIKUSHINO・FUKUOKA
+              </p>
+              <span className="inline-block h-2 w-2 rounded-full bg-coral-300" />
+            </div>
+          </MotionReveal>
+
+          <MotionReveal mode="load" delay={0.1} duration={0.7}>
+            <h1 className="text-center">
+              <span className="block text-4xl font-bold tracking-tight text-cocoa-700 sm:text-5xl">
+                {SITE_NAME}
+              </span>
+              <span className="mt-1 block text-sm font-medium tracking-[0.3em] text-coral-400 sm:text-base">
+                −{SITE_NAME_JA}−
+              </span>
+            </h1>
+          </MotionReveal>
+
+          <MotionReveal mode="load" delay={0.25} duration={0.7}>
+            <p className="mt-5 text-center text-lg font-semibold leading-relaxed text-cocoa-700 sm:text-2xl">
+              産後ママのための、
+              <br className="sm:hidden" />
+              ほっとできる親子サロン
             </p>
-            <span className="inline-block h-2 w-2 rounded-full bg-coral-300" />
-          </div>
-
-          <h1 className="text-center">
-            <span className="block text-4xl font-bold tracking-tight text-cocoa-700 sm:text-5xl">
-              {SITE_NAME}
-            </span>
-            <span className="mt-1 block text-sm font-medium tracking-[0.3em] text-coral-400 sm:text-base">
-              −{SITE_NAME_JA}−
-            </span>
-          </h1>
-
-          <p className="mt-5 text-center text-lg font-semibold leading-relaxed text-cocoa-700 sm:text-2xl">
-            産後ママのための、
-            <br className="sm:hidden" />
-            ほっとできる親子サロン
-          </p>
-          <p className="mx-auto mt-3 max-w-xl text-center text-sm leading-relaxed text-cocoa-500 sm:text-base">
-            赤ちゃんと一緒に、ゆるやかに体を動かして、
-            <br className="hidden sm:block" />
-            同じ時期のママと、やさしい時間を過ごしませんか。
-          </p>
+            <p className="mx-auto mt-3 max-w-xl text-center text-sm leading-relaxed text-cocoa-500 sm:text-base">
+              赤ちゃんと一緒に、ゆるやかに体を動かして、
+              <br className="hidden sm:block" />
+              同じ時期のママと、やさしい時間を過ごしませんか。
+            </p>
+          </MotionReveal>
 
           {/* 対象バッジ */}
-          <div className="mt-5 flex justify-center">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-coral-500 shadow-soft sm:text-sm">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-coral-400" />
-              対象：生後{SALON_INFO.targetAgeMinMonth}ヶ月〜
-              {SALON_INFO.targetAgeMaxYear}歳までのお子さまを子育て中のママ
-            </span>
-          </div>
+          <MotionReveal mode="load" delay={0.4} duration={0.6}>
+            <div className="mt-5 flex justify-center">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-coral-500 shadow-soft sm:text-sm">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-coral-400" />
+                対象：生後{SALON_INFO.targetAgeMinMonth}ヶ月〜
+                {SALON_INFO.targetAgeMaxYear}歳までのお子さまを子育て中のママ
+              </span>
+            </div>
+          </MotionReveal>
 
           {/* ヒーロー画像 */}
-          <div className="mt-6 sm:mt-10">
+          <MotionReveal mode="load" delay={0.5} duration={0.8} className="mt-6 sm:mt-10">
             <PlaceholderImage
               label="活動中の写真"
               alt="mamakoroの活動風景"
@@ -200,19 +216,21 @@ export default function HomePage() {
               priority
               src="/images/hero-activity.jpg"
             />
-          </div>
+          </MotionReveal>
 
           {/* CTA */}
-          <div className="mt-6 flex flex-col items-center gap-3">
-            <InstagramButton
-              label="Instagramで予約・相談する"
-              size="lg"
-              className="w-full max-w-sm"
-            />
-            <p className="text-xs text-cocoa-400">
-              DMでお気軽にメッセージください
-            </p>
-          </div>
+          <MotionReveal mode="load" delay={0.7} duration={0.6}>
+            <div className="mt-6 flex flex-col items-center gap-3">
+              <InstagramButton
+                label="Instagramで予約・相談する"
+                size="lg"
+                className="w-full max-w-sm"
+              />
+              <p className="text-xs text-cocoa-400">
+                DMでお気軽にメッセージください
+              </p>
+            </div>
+          </MotionReveal>
         </div>
       </section>
 
@@ -225,14 +243,16 @@ export default function HomePage() {
         />
 
         <div className="grid gap-5 sm:gap-8">
-          <PlaceholderImage
-            label="親子サロンの様子"
-            alt="親子サロンでママと赤ちゃんが過ごしている様子"
-            aspect="video"
-            // src="/images/about.jpg"
-          />
+          <MotionReveal duration={0.7}>
+            <PlaceholderImage
+              label="親子サロンの様子"
+              alt="親子サロンでママと赤ちゃんが過ごしている様子"
+              aspect="video"
+              // src="/images/about.jpg"
+            />
+          </MotionReveal>
 
-          <div className="grid gap-3 sm:grid-cols-2">
+          <MotionStagger className="grid gap-3 sm:grid-cols-2">
             {[
               {
                 title: "赤ちゃんと楽しむふれあい遊び",
@@ -251,7 +271,7 @@ export default function HomePage() {
                 body: `最大${SALON_INFO.maxCapacity}名さままでの少人数制で、アットホームな雰囲気を大切にしています。`,
               },
             ].map((item) => (
-              <div
+              <MotionStaggerItem
                 key={item.title}
                 className="rounded-3xl bg-cream-100 p-4 shadow-soft sm:p-6"
               >
@@ -261,9 +281,9 @@ export default function HomePage() {
                 <p className="mt-2 text-sm leading-relaxed text-cocoa-500">
                   {item.body}
                 </p>
-              </div>
+              </MotionStaggerItem>
             ))}
-          </div>
+          </MotionStagger>
         </div>
       </Section>
 
@@ -275,10 +295,11 @@ export default function HomePage() {
           description="ひとつでも当てはまったら、お気軽にお越しください。"
         />
 
-        <ul className="grid gap-3 sm:grid-cols-2">
+        <MotionStagger as="ul" className="grid gap-3 sm:grid-cols-2">
           {recommendedFor.map((item) => (
-            <li
+            <MotionStaggerItem
               key={item.text}
+              as="li"
               className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-soft sm:px-5 sm:py-4"
             >
               <span
@@ -290,9 +311,9 @@ export default function HomePage() {
               <span className="text-sm font-medium leading-relaxed text-cocoa-700 sm:text-base">
                 {item.text}
               </span>
-            </li>
+            </MotionStaggerItem>
           ))}
-        </ul>
+        </MotionStagger>
       </Section>
 
       {/* ============ 4. レッスン内容 ============ */}
@@ -304,16 +325,18 @@ export default function HomePage() {
         />
 
         <div className="grid gap-5 sm:gap-8">
-          <PlaceholderImage
-            label="ママ同士の交流イメージ"
-            alt="ママ同士が交流しているイメージ写真"
-            aspect="wide"
-            // src="/images/lesson.jpg"
-          />
+          <MotionReveal duration={0.7}>
+            <PlaceholderImage
+              label="ママ同士の交流イメージ"
+              alt="ママ同士が交流しているイメージ写真"
+              aspect="wide"
+              // src="/images/lesson.jpg"
+            />
+          </MotionReveal>
 
-          <div className="grid gap-3 sm:grid-cols-2">
+          <MotionStagger className="grid gap-3 sm:grid-cols-2">
             {lessonPoints.map((item, i) => (
-              <div
+              <MotionStaggerItem
                 key={item.title}
                 className="rounded-3xl border border-cream-200 bg-cream-50 p-4 shadow-soft sm:p-6"
               >
@@ -328,14 +351,16 @@ export default function HomePage() {
                 <p className="text-sm leading-relaxed text-cocoa-500">
                   {item.description}
                 </p>
-              </div>
+              </MotionStaggerItem>
             ))}
-          </div>
+          </MotionStagger>
 
-          <p className="rounded-2xl bg-peach-100/60 px-4 py-3 text-center text-xs leading-relaxed text-cocoa-500 sm:px-5 sm:py-4 sm:text-sm">
-            ※ 効果には個人差があります。痩身や治療を目的としたものではなく、
-            気分転換や交流のきっかけとしてご活用ください。
-          </p>
+          <MotionReveal delay={0.1}>
+            <p className="rounded-2xl bg-peach-100/60 px-4 py-3 text-center text-xs leading-relaxed text-cocoa-500 sm:px-5 sm:py-4 sm:text-sm">
+              ※ 効果には個人差があります。痩身や治療を目的としたものではなく、
+              気分転換や交流のきっかけとしてご活用ください。
+            </p>
+          </MotionReveal>
         </div>
       </Section>
 
@@ -347,7 +372,7 @@ export default function HomePage() {
           description="シンプルでわかりやすい料金です。"
         />
 
-        <div className="rounded-4xl bg-white p-5 shadow-soft-lg sm:p-10">
+        <MotionReveal className="rounded-4xl bg-white p-5 shadow-soft-lg sm:p-10" duration={0.7}>
           <dl className="divide-y divide-cream-200">
             {[
               {
@@ -380,7 +405,7 @@ export default function HomePage() {
               </div>
             ))}
           </dl>
-        </div>
+        </MotionReveal>
       </Section>
 
       {/* ============ 6. トレーナー紹介 ============ */}
@@ -391,7 +416,7 @@ export default function HomePage() {
           description="同じく子育て中のママだから、わかること。"
         />
 
-        <div className="rounded-4xl bg-cream-100 p-5 shadow-soft sm:p-8">
+        <MotionReveal className="rounded-4xl bg-cream-100 p-5 shadow-soft sm:p-8" duration={0.7}>
           <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-start sm:gap-8">
             <div className="w-40 shrink-0 sm:w-48">
               <PlaceholderImage
@@ -433,7 +458,7 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-        </div>
+        </MotionReveal>
       </Section>
 
       {/* ============ 7. 会場について ============ */}
@@ -444,7 +469,7 @@ export default function HomePage() {
           description="アットホームな空間で開催しています。"
         />
 
-        <div className="rounded-3xl bg-white p-6 text-center shadow-soft sm:p-8">
+        <MotionReveal className="rounded-3xl bg-white p-6 text-center shadow-soft sm:p-8" duration={0.7}>
           <div
             className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-peach-100 text-coral-400 shadow-soft"
             aria-hidden="true"
@@ -494,7 +519,7 @@ export default function HomePage() {
               駐車場４台完備のため、お車でもお越しいただけます。
             </span>
           </div>
-        </div>
+        </MotionReveal>
       </Section>
 
       {/* ============ 8. 参加の流れ ============ */}
@@ -505,10 +530,11 @@ export default function HomePage() {
           description="シンプルな4ステップで参加できます。"
         />
 
-        <ol className="grid gap-3 sm:gap-5">
+        <MotionStagger as="ol" className="grid gap-3 sm:gap-5" stagger={0.1}>
           {steps.map((step) => (
-            <li
+            <MotionStaggerItem
               key={step.no}
+              as="li"
               className="flex gap-3 rounded-3xl bg-cream-50 p-4 shadow-soft sm:gap-6 sm:p-6"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-coral-300 to-peach-300 text-sm font-bold text-white shadow-soft sm:h-14 sm:w-14 sm:text-base">
@@ -522,17 +548,17 @@ export default function HomePage() {
                   {step.description}
                 </p>
               </div>
-            </li>
+            </MotionStaggerItem>
           ))}
-        </ol>
+        </MotionStagger>
 
-        <div className="mt-6 flex justify-center sm:mt-8">
+        <MotionReveal delay={0.15} className="mt-6 flex justify-center sm:mt-8">
           <InstagramButton
             label="Instagram DMを開く"
             size="md"
             variant="outline"
           />
-        </div>
+        </MotionReveal>
       </Section>
 
       {/* ============ 9. よくある質問 ============ */}
@@ -543,87 +569,96 @@ export default function HomePage() {
           description="気になることがあれば、お気軽にDMでもお尋ねください。"
         />
 
-        <div className="space-y-2.5 sm:space-y-4">
+        <MotionStagger className="space-y-2.5 sm:space-y-4" stagger={0.06}>
           {faqs.map((item) => (
-            <details
-              key={item.q}
-              className="group rounded-2xl bg-white p-4 shadow-soft transition open:shadow-soft-lg sm:p-6"
-            >
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
-                <div className="flex flex-1 items-start gap-3">
-                  <span
-                    className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-coral-200 text-xs font-bold text-white"
+            <MotionStaggerItem key={item.q}>
+              <details
+                className="group rounded-2xl bg-white p-4 shadow-soft transition open:shadow-soft-lg sm:p-6"
+              >
+                <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
+                  <div className="flex flex-1 items-start gap-3">
+                    <span
+                      className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-coral-200 text-xs font-bold text-white"
+                      aria-hidden="true"
+                    >
+                      Q
+                    </span>
+                    <span className="text-sm font-semibold leading-relaxed text-cocoa-700 sm:text-base">
+                      {item.q}
+                    </span>
+                  </div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="mt-1 h-5 w-5 shrink-0 text-coral-400 transition group-open:rotate-180"
                     aria-hidden="true"
                   >
-                    Q
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </summary>
+                <div className="faq-body mt-3 flex items-start gap-3 border-t border-cream-200 pt-3">
+                  <span
+                    className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-peach-200 text-xs font-bold text-white"
+                    aria-hidden="true"
+                  >
+                    A
                   </span>
-                  <span className="text-sm font-semibold leading-relaxed text-cocoa-700 sm:text-base">
-                    {item.q}
-                  </span>
+                  <p className="flex-1 text-sm leading-relaxed text-cocoa-500">
+                    {item.a}
+                  </p>
                 </div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="mt-1 h-5 w-5 shrink-0 text-coral-400 transition group-open:rotate-180"
-                  aria-hidden="true"
-                >
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </summary>
-              <div className="mt-3 flex items-start gap-3 border-t border-cream-200 pt-3">
-                <span
-                  className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-peach-200 text-xs font-bold text-white"
-                  aria-hidden="true"
-                >
-                  A
-                </span>
-                <p className="flex-1 text-sm leading-relaxed text-cocoa-500">
-                  {item.a}
-                </p>
-              </div>
-            </details>
+              </details>
+            </MotionStaggerItem>
           ))}
-        </div>
+        </MotionStagger>
       </Section>
 
       {/* ============ 10. 最後のCTA ============ */}
       <section className="relative overflow-hidden bg-gradient-to-br from-coral-200 via-peach-200 to-coral-300">
         <div className="absolute inset-0 bg-soft-dots opacity-40" />
         <div className="relative mx-auto w-full max-w-2xl px-5 py-12 text-center sm:px-6 sm:py-24">
-          <p className="text-xs font-semibold tracking-[0.25em] text-white/90">
-            COME JOIN US
-          </p>
-          <h2 className="mt-3 text-2xl font-bold leading-snug text-white drop-shadow-sm sm:text-3xl">
-            まずはお気軽に、
-            <br />
-            Instagramを覗いてみてください
-          </h2>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/90 sm:text-base">
-            「行ってみたい」「ちょっと相談したい」だけでも大丈夫です。
-            DMでお気軽にメッセージください。
-          </p>
-          <div className="mt-6 flex flex-col items-center gap-3 sm:mt-8">
-            <InstagramButton
-              label="Instagramで予約・相談する"
-              size="lg"
-              variant="outline"
-              className="w-full max-w-sm"
-            />
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Instagramアカウント ${INSTAGRAM_HANDLE} を新しいタブで開く`}
-              className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/30"
-            >
-              <span className="tracking-wide">Instagram：{INSTAGRAM_HANDLE}</span>
-            </a>
-          </div>
+          <MotionStagger stagger={0.1}>
+            <MotionStaggerItem>
+              <p className="text-xs font-semibold tracking-[0.25em] text-white/90">
+                COME JOIN US
+              </p>
+            </MotionStaggerItem>
+            <MotionStaggerItem>
+              <h2 className="mt-3 text-2xl font-bold leading-snug text-white drop-shadow-sm sm:text-3xl">
+                まずはお気軽に、
+                <br />
+                Instagramを覗いてみてください
+              </h2>
+            </MotionStaggerItem>
+            <MotionStaggerItem>
+              <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/90 sm:text-base">
+                「行ってみたい」「ちょっと相談したい」だけでも大丈夫です。
+                DMでお気軽にメッセージください。
+              </p>
+            </MotionStaggerItem>
+            <MotionStaggerItem className="mt-6 flex flex-col items-center gap-3 sm:mt-8">
+              <InstagramButton
+                label="Instagramで予約・相談する"
+                size="lg"
+                variant="outline"
+                className="w-full max-w-sm"
+              />
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Instagramアカウント ${INSTAGRAM_HANDLE} を新しいタブで開く`}
+                className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/30"
+              >
+                <span className="tracking-wide">Instagram：{INSTAGRAM_HANDLE}</span>
+              </a>
+            </MotionStaggerItem>
+          </MotionStagger>
         </div>
       </section>
 

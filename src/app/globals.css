@@ -24,3 +24,28 @@ body {
   background-image: radial-gradient(rgba(244, 167, 149, 0.15) 1px, transparent 1px);
   background-size: 22px 22px;
 }
+
+/* FAQ 開閉時のふわっとしたアニメーション */
+@keyframes faq-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+details[open] > .faq-body {
+  animation: faq-fade-in 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  details[open] > .faq-body {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
